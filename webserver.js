@@ -3,7 +3,7 @@ var http = require('http').createServer(handler);
 var fs = require('fs');
 var io = require('socket.io')(http)
 
-http.listen(8080);  // Server listens to port 8080
+http.listen(8000);  // Server listens to port 8080
 
 // Handles request from client, sends index.html
 function handler(req, res) {
@@ -28,15 +28,16 @@ var rpi433    = require('rpi-433'),
       pin: 0,                     //Send through GPIO 0 (or Physical PIN 11)
       pulseLength: 350            //Send the code with a 350 pulse length
     });
- 
-// Receive (data is like {code: xxx, pulseLength: xxx})
-rfSniffer.on('data', function (data) {
-  console.log('Code received: '+data.code+' pulse length : '+data.pulseLength);
-});
+
 
 
 // Astablishes a socket connection with client
 io.sockets.on('connection', function (socket) {
+
+    rfSniffer.on('data', function (data) {
+        console.log('Code received: '+data.code);
+        socket.emit('received', data.code);
+    });
 
     socket.on('test', function (data) {
         console.log("erhalten.")
