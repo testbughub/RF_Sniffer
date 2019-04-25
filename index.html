@@ -36,10 +36,8 @@
                 socket.emit("test");
             });
 
-            io.sockets.on('connection', function (socket) {
-                socket.on('test', function (data) {
-                    console.log("code erhalten: "+data)
-                });
+            socket.on('received', function (data) {
+                console.log("code erhalten: "+data)
             });
             
         });
