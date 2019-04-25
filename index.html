@@ -46,7 +46,7 @@
 
             // Display received code in box
             socket.on('received', function (data) {
-                $('code-display').val(data+'\n'+$('code-display').val());
+                $('#code-display').val(data+'\n'+$('#code-display').val());
             });
             
             
