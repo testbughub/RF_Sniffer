@@ -19,26 +19,36 @@
 
 <body>
 
-    <h1>RF-Sniffer</h1>
+    <h1 class="display-1" style="text-align: center;">RF-Sniffer</h1>
+    <p style="text-align: center;">Sniff your 433Mhz signals with this website!</p>
+    <hr>
 
-    <p>Sniff your 433Mhz signals with this website!</p>
+    <h4 style="text-align: center;">Received Codes:</h4>
+    <div id="d_switch" class="btn-group d-flex justify-content-center">
+        <button id="clear">Clear</button><br>
+        <textarea id="code-display" rows="10" cols="70" disabled></textarea>
+    </div>
 
-    <button id="test">Press me!</button>
-
+    <p style="text-align: center;">(Newest on top)</p>
+    <br>
     
+
     
     <script>
         $(document).ready(function() {
+
             var socket = io();
 
-            $("#test").click(function(){ 
-                console.log("Button pressed.")
-                socket.emit("test");
+            // Clear Box
+            $("#clear").click(function(){
+                $('#code-display').val('');
             });
 
+            // Display received code in box
             socket.on('received', function (data) {
-                console.log("code erhalten: "+data)
+                $('code-display').val(data+'\n'+$('code-display').val());
             });
+            
             
         });
     </script>

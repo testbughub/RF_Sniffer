@@ -30,17 +30,10 @@ var rpi433    = require('rpi-433'),
     });
 
 
-
 // Astablishes a socket connection with client
 io.sockets.on('connection', function (socket) {
-
     rfSniffer.on('data', function (data) {
         console.log('Code received: '+data.code);
         socket.emit('received', data.code);
     });
-
-    socket.on('test', function (data) {
-        console.log("erhalten.")
-    });
-
 });
