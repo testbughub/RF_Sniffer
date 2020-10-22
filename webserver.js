@@ -3,7 +3,7 @@ var http = require('http').createServer(handler);
 var fs = require('fs');
 var io = require('socket.io')(http)
 
-http.listen(8000);  // Server listens to port 8080
+http.listen(8042);  // Server listens to port 8042
 
 // Handles request from client, sends index.html
 function handler(req, res) {
@@ -19,7 +19,7 @@ function handler(req, res) {
 }
 
 
-var rpi433    = require('rpi-433'),
+var rpi433    = require('rpi-433-v3'),
     rfSniffer = rpi433.sniffer({
       pin: 2,                     //Snif on GPIO 2 (or Physical PIN 13)
       debounceDelay: 500          //Wait 500ms before reading another code
