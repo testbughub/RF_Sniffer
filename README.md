@@ -1,3 +1,10 @@
+## Description
+Forked from [RonnyFalconeri's RF_Sniffer](https://github.com/RonnyFalconeri/RF_Sniffer),  
+but with updated node module.  
+I also changed the port to **8432**.
+
+(Below is a copy of [RonnyFalconeri's RF_Sniffer](https://github.com/RonnyFalconeri/RF_Sniffer) README.)
+
 # RF_Sniffer
 A simple application which displays received 433MHz signals on a web UI and terminal using the RF-Modules.
 

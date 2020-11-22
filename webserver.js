@@ -3,7 +3,7 @@ var http = require('http').createServer(handler);
 var fs = require('fs');
 var io = require('socket.io')(http)
 
-http.listen(8042);  // Server listens to port 8042
+http.listen(8432);  // Server listens to port 8042
 
 // Handles request from client, sends index.html
 function handler(req, res) {
